@@ -1,56 +1,60 @@
 import React from "react";
-import { Container, Item, Button, Form, Grid } from "semantic-ui-react";
-
 import HeaderNew from "../HeaderNew/header.new";
+import { Grid, TextField, Typography } from "@mui/material";
+import { styled } from "@mui/styles";
+import { green } from "@mui/material/colors";
+import Button from "@mui/material/Button";
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  backgroundColor: green[500],
+  "&:hover": {
+    backgroundColor: green[700],
+  },
+}));
 
 const Login = () => {
   return (
     <div style={{ backgroundColor: " #EFEFEF" }}>
-      <Container>
-        <br />
-        <HeaderNew pageTitle="Get Started" />
-        <>
-          <Item.Group divided>
-            <Item>
-              <Item.Content>
-                <Item.Meta>
-                  <p
-                    style={{
-                      textAlign: "center",
-                    }}
-                  >
-                    Just enter your email address and we'll email you a magic
-                    link to log straight in.
-                  </p>
-                  <Form>
-                    <Form.Field>
-                      <input
-                        style={{
-                          textAlign: "center",
-                          marginTop: "30vh",
-                        }}
-                        type="text"
-                        placeholder="What's your email address?"
-                      />
-                    </Form.Field>
-                  </Form>
-                  <br />
-                </Item.Meta>
-                <Item.Extra>
-                  <Grid>
-                    <Grid.Column textAlign="center">
-                      <Button color="dark green" size="tiny" icon="play">
-                        Log in
-                      </Button>
-                    </Grid.Column>
-                  </Grid>
-                </Item.Extra>
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </>
-        <br />
-      </Container>
+      <HeaderNew pageTitle="Get Started" />
+      <br />
+      <>
+        <Typography variant="subtitle1" gutterBottom align="center">
+          Just enter your email address and we'll email you a magic link to log
+          straight in.
+        </Typography>{" "}
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "60vh",
+              }}
+            >
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                defaultValue="What's your email address?"
+                inputProps={{ min: 0, style: { textAlign: "center" } }}
+                sx={{ m: 1, width: "auto" }}
+              />
+            </div>
+          </Grid>
+          <Grid item xs={12}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <ColorButton variant="contained">Login In</ColorButton>
+            </div>
+          </Grid>
+        </Grid>
+      </>
+      <br />
     </div>
   );
 };
