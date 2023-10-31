@@ -8,14 +8,20 @@ import Result from "../Result";
 import Login from "../Main/login";
 
 import { shuffle } from "../../utils";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LOGIN } from "../../constants";
+import LandingPage from "../LandingPage";
+import CreateProject from "../Project/create.project";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(null);
   return (
     <>
+      {/* {loading && <Loader {...loadingMessage} />}
+      {!loading && <Login />} */}
       {loading && <Loader {...loadingMessage} />}
-      {!loading && <Login />}
+      {!loading && <CreateProject />}
     </>
   );
 };
